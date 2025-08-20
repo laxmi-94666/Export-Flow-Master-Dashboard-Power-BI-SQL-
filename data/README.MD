@@ -1,7 +1,5 @@
 # Data Folder
 
-Add your CSV files here with the following structure:
-
 ## Required Files:
 - `buyer_currency.csv` - Buyer master data
 - `invoice_raised.csv` - Shipping and invoicing records  
