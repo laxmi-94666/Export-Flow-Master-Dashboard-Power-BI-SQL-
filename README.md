@@ -3,7 +3,7 @@
 
 A production-ready analytics system that consolidates order management, logistics, and payment data into executive dashboards. Built for CFO-level decision making with real-time visibility into orders, shipments, receivables, and cash flow.
 
-![Dashboard Overview](powerbi/screenshots/dashboard view.png)
+![Dashboard Overview](powerbi/screenshots/dashboard_view.png)
 
 ## 🎯 Business Impact
 
