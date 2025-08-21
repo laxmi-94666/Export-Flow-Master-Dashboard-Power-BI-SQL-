@@ -26,7 +26,7 @@ A production-ready analytics system that consolidates order management, logistic
 ![Executive Dashboard](powerbi/screenshots/executive_dashboard.png)
 
 ### Power BI Data Model
-![Data Model](powerbi/screenshots/data_model.png)
+![Data Model](powerbi/screenshots/Relationship_Models.png)
 
 ### SQL Relationships
 ![SQL Model](powerbi/screenshots/sql_relationships.png)
