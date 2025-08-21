@@ -1,0 +1,40 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `POWERBI_SHIPPED`()
+BEGIN
+ WITH MONTH_INNER_SHIP AS(
+
+				SELECT DISTINCT
+						LD.ORD_NUM,
+						LD.BUYER,CONCAT(SUBSTRING(MONTHNAME(LD.DELIVERY_DATE), 1, 3), '-', YEAR(LD.DELIVERY_DATE)) AS ORD_MONTH,
+						LD.INVOICE_NO,
+						LD.PRICE,
+                        LD.CURRENT_CURRENCY_RATE ,
+						LD.ORDER_QTY,LD.ORDER_VALUE,
+						LD.ORDER_VALUE_INR, 
+						LD.SHIP_QTY,LD.SHIP_VALUE,
+						LD.SHIP_VALUE_INR,
+						CONCAT(SUBSTRING(MONTHNAME(LD.SHIP_DATE), 1, 3), '-', YEAR(LD.SHIP_DATE)) AS SHIP_MONTH,
+						(MONTH(LD.DELIVERY_DATE)+8)%12+1 AS ORDERMONTH, 
+						case 
+							when month(LD.SHIP_DATE) between 4 and 12 then concat(year(LD.SHIP_DATE),'-',year(LD.SHIP_DATE)+1) 
+							else concat(year(LD.SHIP_DATE)-1,'-',year(LD.SHIP_DATE)) 
+						end as FinYear,
+                        LD.SHIP_DATE
+					
+				FROM Order_Details_Responses_Logistic.LOGISTIC_DETAILS AS LD 
+
+				WHERE LD.SHIP_DATE >= '2023-04-01' AND LD.SHIP_QTY IS NOT NULL
+				
+
+)
+				
+					SELECT 
+						BUYER,
+						SHIP_MONTH,
+						sum(SHIP_QTY) AS SHIP_QTY,
+						round(SUM(SHIP_VALUE_INR),2) AS SHIP_VALUE_INR,
+						FinYear
+					FROM MONTH_INNER_SHIP
+					
+					GROUP BY BUYER,FinYear,SHIP_MONTH
+;
+END
