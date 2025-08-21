@@ -1,0 +1,7 @@
+ID,BUYER_NAME,BUYER_LOCATION,BUYER_CURRENCY,BUYER_PAYMENT_TERM_IN_DAYS,MERCHANT,exhange_rate
+1,Zara,Spain,EUR,30,Arjun,97.10
+2,H&M,Sweden,SEK,52,Preeti,8.90
+4,Nike,USA,USD,40,Lata,85.50
+5,Adidas,Germany,EUR,42,Tina,97.01
+6,Burberry,"United Kingdom",GBP,39,Karan,115.70
+7,Gucci,Italy,EUR,50,Vivek,97.01
